@@ -1,5 +1,7 @@
 .mainDiv {
   padding: 20px;
+  background: #d3d3d359;
+  height: 100vh;
 }
 
 .form {
@@ -12,4 +14,31 @@
 .errorMSG {
   color: red;
   font-size: 12px;
+}
+
+.button {
+  margin-left: 20px;
+}
+
+.noDataFound {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dialogTitle {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.table {
+  margin-top: 20px;
 }

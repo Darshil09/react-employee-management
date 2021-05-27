@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import AddProjectForm from './AddProjectForm';
+import styles from './Dashboard.module.scss';
 
 const useStyles = makeStyles({
     root: {
@@ -23,7 +23,7 @@ const AddProjectDialog = (props) => {
         }
         projectList.push(payload);
         localStorage.setItem('projectList', JSON.stringify(projectList));
-        onClose();
+        onClose(true);
     };
 
     const checkProjectExistsOrNot = async (list, key, value) => {
@@ -43,7 +43,7 @@ const AddProjectDialog = (props) => {
     return (
         <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={open}>
             <div className={classes.root}>
-                <DialogTitle id="simple-dialog-title">Add Project From</DialogTitle>
+                <div className={styles.dialogTitle}>Project</div>
                 <AddProjectForm handelSubmit={handelSubmit} />
             </div>
         </Dialog>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import AddEmployeeForm from './AddEmployeeForm';
+import styles from './Dashboard.module.scss';
 
 const useStyles = makeStyles({
     root: {
@@ -23,7 +23,7 @@ const AddEmployeeDialog = (props) => {
         }
         employeeList.push(payload);
         localStorage.setItem('employeeList', JSON.stringify(employeeList));
-        onClose();
+        onClose(true);
     };
 
     const checkEmployeeExistsOrNot = async (list, key, value) => {
@@ -42,7 +42,7 @@ const AddEmployeeDialog = (props) => {
     return (
         <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={open}>
             <div className={classes.root}>
-                <DialogTitle id="simple-dialog-title">Add Employee From</DialogTitle>
+                <div className={styles.dialogTitle}>Employee</div>
                 <AddEmployeeForm handelSubmit={handelSubmit} />
             </div>
         </Dialog>
