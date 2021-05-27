@@ -15,6 +15,7 @@ const AddEmployeeDialog = (props) => {
     const classes = useStyles();
     const { onClose, open } = props;
 
+    // Validate and add Employee
     const handelSubmit = async (payload) => {
         let employeeList = JSON.parse(localStorage.getItem('employeeList')) || [];
         if (await checkEmployeeExistsOrNot(employeeList, 'email', payload.key)) {
@@ -26,6 +27,7 @@ const AddEmployeeDialog = (props) => {
         onClose(true);
     };
 
+    // Check if employee is available or not
     const checkEmployeeExistsOrNot = async (list, key, value) => {
         let isAvailable = false;
 

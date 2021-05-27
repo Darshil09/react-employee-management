@@ -19,48 +19,52 @@ const Dashboard = (props) => {
         message: ''
     });
 
+    // Close snackBar
     const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
+        if (reason === 'clickaway')
             return;
-        }
+
         setOpenSnackBar({
             open: false,
             message: ''
         });
     };
 
+    // Open Employee Dialog only if there is at least one project added
     const openAddEmployeeDialog = () => {
-        if (projectList.length > 0) {
+        if (projectList.length > 0)
             setOpenEmployeeDialog(true)
-        } else {
+        else
             setOpenSnackBar({
                 open: true,
                 message: "Please add atleast one project to add an employee"
             });
-        }
+
     }
 
+    // Close project event
     const handelCloseProjectEvent = (data) => {
-        if (data) {
+        if (data)
             setProjectList(JSON.parse(localStorage.getItem('projectList')) || [])
-        }
+
         setOpenAddProjectDialog(false)
     }
 
+    // Close Employee event
     const handelCloseEmaployeeEvent = (data) => {
-        if (data) {
+        if (data)
             setEmployeeList(JSON.parse(localStorage.getItem('employeeList')) || [])
-        }
+
         setOpenEmployeeDialog(false)
     }
 
     return (
         <div className={styles.mainDiv}>
             <div className={styles.buttonContainer}>
-                <Button variant="contained" color="primary" onClick={() => { setOpenAddProjectDialog(true) }} className={styles.button}>
+                <Button style={{ marginRight: 20 }} variant="contained" color="primary" onClick={() => { setOpenAddProjectDialog(true) }}>
                     Add Project
                 </Button>
-                <Button variant="contained" color="primary" onClick={() => { openAddEmployeeDialog() }} className={styles.button}>
+                <Button variant="contained" color="primary" onClick={() => { openAddEmployeeDialog() }}>
                     Add Employee
                 </Button>
             </div>

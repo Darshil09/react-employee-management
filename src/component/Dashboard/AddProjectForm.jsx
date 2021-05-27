@@ -14,7 +14,6 @@ const AddProjectForm = (props) => {
                 handelSubmit(values);
                 setSubmitting(false);
             }}
-            //********Using Yum for validation********/
             validationSchema={Yup.object().shape({
                 key: Yup.string()
                     .required("Required"),

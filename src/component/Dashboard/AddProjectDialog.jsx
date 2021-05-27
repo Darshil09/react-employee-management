@@ -15,6 +15,7 @@ const AddProjectDialog = (props) => {
     const classes = useStyles();
     const { onClose, open } = props;
 
+    // Validate and add project
     const handelSubmit = async (payload) => {
         let projectList = JSON.parse(localStorage.getItem('projectList')) || [];
         if (await checkProjectExistsOrNot(projectList, 'key', payload.key)) {
@@ -26,6 +27,7 @@ const AddProjectDialog = (props) => {
         onClose(true);
     };
 
+    // Check if project is available or not
     const checkProjectExistsOrNot = async (list, key, value) => {
         let isAvailable = false;
 
